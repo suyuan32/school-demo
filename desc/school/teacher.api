@@ -1,0 +1,74 @@
+import "../base.api"
+
+type (
+    // The response data of teacher information | Teacher信息
+    TeacherInfo {
+        BaseIDInfo
+
+        // Teacher's name | 教师姓名 
+        Name  *string `json:"name,optional"`
+
+        // Teacher's age | 教师年龄 
+        Age  *int16 `json:"age,optional"`
+    }
+
+    // The response data of teacher list | Teacher列表数据
+    TeacherListResp {
+        BaseDataInfo
+
+        // Teacher list data | Teacher列表数据
+        Data TeacherListInfo `json:"data"`
+    }
+
+    // Teacher list data | Teacher列表数据
+    TeacherListInfo {
+        BaseListInfo
+
+        // The API list data | Teacher列表数据
+        Data  []TeacherInfo  `json:"data"`
+    }
+
+    // Get teacher list request params | Teacher列表请求参数
+    TeacherListReq {
+        PageInfo
+
+        // Teacher's name | 教师姓名 
+        Name  *string `json:"name,optional"`
+    }
+
+    // Teacher information response | Teacher信息返回体
+    TeacherInfoResp {
+        BaseDataInfo
+
+        // Teacher information | Teacher数据
+        Data TeacherInfo `json:"data"`
+    }
+)
+
+@server(
+    jwt: Auth
+    group: teacher
+    middleware: Authority
+)
+
+service School {
+    // Create teacher information | 创建Teacher
+    @handler createTeacher
+    post /teacher/create (TeacherInfo) returns (BaseMsgResp)
+
+    // Update teacher information | 更新Teacher
+    @handler updateTeacher
+    post /teacher/update (TeacherInfo) returns (BaseMsgResp)
+
+    // Delete teacher information | 删除Teacher信息
+    @handler deleteTeacher
+    post /teacher/delete (IDsReq) returns (BaseMsgResp)
+
+    // Get teacher list | 获取Teacher列表
+    @handler getTeacherList
+    post /teacher/list (TeacherListReq) returns (TeacherListResp)
+
+    // Get teacher by ID | 通过ID获取Teacher
+    @handler getTeacherById
+    post /teacher (IDReq) returns (TeacherInfoResp)
+}

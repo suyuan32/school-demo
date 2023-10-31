@@ -1,0 +1,911 @@
+{
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "schemes": [
+    "http",
+    "https"
+  ],
+  "swagger": "2.0",
+  "info": {
+    "description": "Description: school service",
+    "title": "school",
+    "version": "0.0.1"
+  },
+  "host": "localhost:9110",
+  "basePath": "/",
+  "paths": {
+    "/init/database": {
+      "get": {
+        "description": "Initialize database | 初始化数据库",
+        "tags": [
+          "base"
+        ],
+        "summary": "Initialize database | 初始化数据库",
+        "operationId": "InitDatabase",
+        "responses": {
+          "200": {
+            "description": "BaseMsgResp",
+            "schema": {
+              "$ref": "#/definitions/BaseMsgResp"
+            }
+          }
+        }
+      }
+    },
+    "/student": {
+      "post": {
+        "description": "Get student by ID | 通过ID获取Student",
+        "tags": [
+          "student"
+        ],
+        "summary": "Get student by ID | 通过ID获取Student",
+        "operationId": "GetStudentById",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "$ref": "#/definitions/UUIDReq"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "StudentInfoResp",
+            "schema": {
+              "$ref": "#/definitions/StudentInfoResp"
+            }
+          }
+        }
+      }
+    },
+    "/student/create": {
+      "post": {
+        "description": "Create student information | 创建Student",
+        "tags": [
+          "student"
+        ],
+        "summary": "Create student information | 创建Student",
+        "operationId": "CreateStudent",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "$ref": "#/definitions/StudentInfo"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "BaseMsgResp",
+            "schema": {
+              "$ref": "#/definitions/BaseMsgResp"
+            }
+          }
+        }
+      }
+    },
+    "/student/delete": {
+      "post": {
+        "description": "Delete student information | 删除Student信息",
+        "tags": [
+          "student"
+        ],
+        "summary": "Delete student information | 删除Student信息",
+        "operationId": "DeleteStudent",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "$ref": "#/definitions/UUIDsReq"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "BaseMsgResp",
+            "schema": {
+              "$ref": "#/definitions/BaseMsgResp"
+            }
+          }
+        }
+      }
+    },
+    "/student/list": {
+      "post": {
+        "description": "Get student list | 获取Student列表",
+        "tags": [
+          "student"
+        ],
+        "summary": "Get student list | 获取Student列表",
+        "operationId": "GetStudentList",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "$ref": "#/definitions/StudentListReq"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "StudentListResp",
+            "schema": {
+              "$ref": "#/definitions/StudentListResp"
+            }
+          }
+        }
+      }
+    },
+    "/student/test": {
+      "post": {
+        "description": "Test get student by name | 测试通过名称获取单个学生",
+        "tags": [
+          "student"
+        ],
+        "summary": "Test get student by name | 测试通过名称获取单个学生",
+        "operationId": "TestGetStudentByName",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "$ref": "#/definitions/TestReq"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "TestResp",
+            "schema": {
+              "$ref": "#/definitions/TestResp"
+            }
+          }
+        }
+      }
+    },
+    "/student/update": {
+      "post": {
+        "description": "Update student information | 更新Student",
+        "tags": [
+          "student"
+        ],
+        "summary": "Update student information | 更新Student",
+        "operationId": "UpdateStudent",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "$ref": "#/definitions/StudentInfo"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "BaseMsgResp",
+            "schema": {
+              "$ref": "#/definitions/BaseMsgResp"
+            }
+          }
+        }
+      }
+    },
+    "/teacher": {
+      "post": {
+        "description": "Get teacher by ID | 通过ID获取Teacher",
+        "tags": [
+          "teacher"
+        ],
+        "summary": "Get teacher by ID | 通过ID获取Teacher",
+        "operationId": "GetTeacherById",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "$ref": "#/definitions/IDReq"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "TeacherInfoResp",
+            "schema": {
+              "$ref": "#/definitions/TeacherInfoResp"
+            }
+          }
+        }
+      }
+    },
+    "/teacher/create": {
+      "post": {
+        "description": "Create teacher information | 创建Teacher",
+        "tags": [
+          "teacher"
+        ],
+        "summary": "Create teacher information | 创建Teacher",
+        "operationId": "CreateTeacher",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "$ref": "#/definitions/TeacherInfo"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "BaseMsgResp",
+            "schema": {
+              "$ref": "#/definitions/BaseMsgResp"
+            }
+          }
+        }
+      }
+    },
+    "/teacher/delete": {
+      "post": {
+        "description": "Delete teacher information | 删除Teacher信息",
+        "tags": [
+          "teacher"
+        ],
+        "summary": "Delete teacher information | 删除Teacher信息",
+        "operationId": "DeleteTeacher",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "$ref": "#/definitions/IDsReq"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "BaseMsgResp",
+            "schema": {
+              "$ref": "#/definitions/BaseMsgResp"
+            }
+          }
+        }
+      }
+    },
+    "/teacher/list": {
+      "post": {
+        "description": "Get teacher list | 获取Teacher列表",
+        "tags": [
+          "teacher"
+        ],
+        "summary": "Get teacher list | 获取Teacher列表",
+        "operationId": "GetTeacherList",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "$ref": "#/definitions/TeacherListReq"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "TeacherListResp",
+            "schema": {
+              "$ref": "#/definitions/TeacherListResp"
+            }
+          }
+        }
+      }
+    },
+    "/teacher/update": {
+      "post": {
+        "description": "Update teacher information | 更新Teacher",
+        "tags": [
+          "teacher"
+        ],
+        "summary": "Update teacher information | 更新Teacher",
+        "operationId": "UpdateTeacher",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "$ref": "#/definitions/TeacherInfo"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "BaseMsgResp",
+            "schema": {
+              "$ref": "#/definitions/BaseMsgResp"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "BaseDataInfo": {
+      "description": "The basic response with data | 基础带数据信息",
+      "type": "object",
+      "properties": {
+        "code": {
+          "description": "Error code | 错误代码",
+          "type": "integer",
+          "format": "int64",
+          "x-go-name": "Code"
+        },
+        "data": {
+          "description": "Data | 数据",
+          "type": "string",
+          "x-go-name": "Data"
+        },
+        "msg": {
+          "description": "Message | 提示信息",
+          "type": "string",
+          "x-go-name": "Msg"
+        }
+      },
+      "x-go-package": "github.com/suyuan32/simple-admin-school/internal/types"
+    },
+    "BaseIDInfo": {
+      "description": "The base ID response data | 基础ID信息",
+      "type": "object",
+      "properties": {
+        "createdAt": {
+          "description": "Create date | 创建日期",
+          "type": "integer",
+          "format": "int64",
+          "x-go-name": "CreatedAt"
+        },
+        "id": {
+          "description": "ID",
+          "type": "integer",
+          "format": "uint64",
+          "x-go-name": "Id"
+        },
+        "updatedAt": {
+          "description": "Update date | 更新日期",
+          "type": "integer",
+          "format": "int64",
+          "x-go-name": "UpdatedAt"
+        }
+      },
+      "x-go-package": "github.com/suyuan32/simple-admin-school/internal/types"
+    },
+    "BaseListInfo": {
+      "description": "The basic response with data | 基础带数据信息",
+      "type": "object",
+      "properties": {
+        "data": {
+          "description": "Data | 数据",
+          "type": "string",
+          "x-go-name": "Data"
+        },
+        "total": {
+          "description": "The total number of data | 数据总数",
+          "type": "integer",
+          "format": "uint64",
+          "x-go-name": "Total"
+        }
+      },
+      "x-go-package": "github.com/suyuan32/simple-admin-school/internal/types"
+    },
+    "BaseMsgResp": {
+      "description": "The basic response without data | 基础不带数据信息",
+      "type": "object",
+      "properties": {
+        "code": {
+          "description": "Error code | 错误代码",
+          "type": "integer",
+          "format": "int64",
+          "x-go-name": "Code"
+        },
+        "msg": {
+          "description": "Message | 提示信息",
+          "type": "string",
+          "x-go-name": "Msg"
+        }
+      },
+      "x-go-package": "github.com/suyuan32/simple-admin-school/internal/types"
+    },
+    "BaseUUIDInfo": {
+      "description": "The base UUID response data | 基础UUID信息",
+      "type": "object",
+      "properties": {
+        "createdAt": {
+          "description": "Create date | 创建日期",
+          "type": "integer",
+          "format": "int64",
+          "x-go-name": "CreatedAt"
+        },
+        "id": {
+          "description": "ID",
+          "type": "string",
+          "x-go-name": "Id"
+        },
+        "updatedAt": {
+          "description": "Update date | 更新日期",
+          "type": "integer",
+          "format": "int64",
+          "x-go-name": "UpdatedAt"
+        }
+      },
+      "x-go-package": "github.com/suyuan32/simple-admin-school/internal/types"
+    },
+    "IDPathReq": {
+      "description": "Basic ID request | 基础ID地址参数请求",
+      "type": "object",
+      "required": [
+        "Id"
+      ],
+      "properties": {
+        "Id": {
+          "description": "ID",
+          "type": "integer",
+          "format": "uint64"
+        }
+      },
+      "x-go-package": "github.com/suyuan32/simple-admin-school/internal/types"
+    },
+    "IDReq": {
+      "description": "Basic ID request | 基础ID参数请求",
+      "type": "object",
+      "required": [
+        "id"
+      ],
+      "properties": {
+        "id": {
+          "description": "ID",
+          "type": "integer",
+          "format": "uint64",
+          "x-go-name": "Id"
+        }
+      },
+      "x-go-package": "github.com/suyuan32/simple-admin-school/internal/types"
+    },
+    "IDsReq": {
+      "description": "Basic IDs request | 基础ID数组参数请求",
+      "type": "object",
+      "required": [
+        "ids"
+      ],
+      "properties": {
+        "ids": {
+          "description": "IDs",
+          "type": "array",
+          "items": {
+            "type": "integer",
+            "format": "uint64"
+          },
+          "x-go-name": "Ids"
+        }
+      },
+      "x-go-package": "github.com/suyuan32/simple-admin-school/internal/types"
+    },
+    "PageInfo": {
+      "description": "The page request parameters | 列表请求参数",
+      "type": "object",
+      "required": [
+        "page",
+        "pageSize"
+      ],
+      "properties": {
+        "page": {
+          "description": "Page number | 第几页",
+          "type": "integer",
+          "format": "uint64",
+          "minimum": 0,
+          "x-go-name": "Page"
+        },
+        "pageSize": {
+          "description": "Page size | 单页数据行数",
+          "type": "integer",
+          "format": "uint64",
+          "maximum": 100000,
+          "x-go-name": "PageSize"
+        }
+      },
+      "x-go-package": "github.com/suyuan32/simple-admin-school/internal/types"
+    },
+    "StudentInfo": {
+      "description": "The response data of student information | Student信息",
+      "type": "object",
+      "properties": {
+        "address": {
+          "description": "Student's home address | 学生家庭住址",
+          "type": "string",
+          "x-go-name": "Address"
+        },
+        "age": {
+          "description": "Student age | 学生年龄",
+          "type": "integer",
+          "format": "int16",
+          "x-go-name": "Age"
+        },
+        "createdAt": {
+          "description": "Create date | 创建日期",
+          "type": "integer",
+          "format": "int64",
+          "x-go-name": "CreatedAt"
+        },
+        "id": {
+          "description": "ID",
+          "type": "string",
+          "x-go-name": "Id"
+        },
+        "name": {
+          "description": "Student name | 学生姓名",
+          "type": "string",
+          "x-go-name": "Name"
+        },
+        "updatedAt": {
+          "description": "Update date | 更新日期",
+          "type": "integer",
+          "format": "int64",
+          "x-go-name": "UpdatedAt"
+        }
+      },
+      "x-go-package": "github.com/suyuan32/simple-admin-school/internal/types"
+    },
+    "StudentInfoResp": {
+      "description": "Student information response | Student信息返回体",
+      "type": "object",
+      "properties": {
+        "code": {
+          "description": "Error code | 错误代码",
+          "type": "integer",
+          "format": "int64",
+          "x-go-name": "Code"
+        },
+        "data": {
+          "description": "Data | 数据",
+          "type": "string",
+          "x-go-name": "Data",
+          "$ref": "#/definitions/StudentInfo"
+        },
+        "msg": {
+          "description": "Message | 提示信息",
+          "type": "string",
+          "x-go-name": "Msg"
+        }
+      },
+      "x-go-package": "github.com/suyuan32/simple-admin-school/internal/types"
+    },
+    "StudentListInfo": {
+      "description": "Student list data | Student列表数据",
+      "type": "object",
+      "properties": {
+        "data": {
+          "description": "The API list data | Student列表数据",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/StudentInfo"
+          },
+          "x-go-name": "Data"
+        },
+        "total": {
+          "description": "The total number of data | 数据总数",
+          "type": "integer",
+          "format": "uint64",
+          "x-go-name": "Total"
+        }
+      },
+      "x-go-package": "github.com/suyuan32/simple-admin-school/internal/types"
+    },
+    "StudentListReq": {
+      "description": "Get student list request params | Student列表请求参数",
+      "type": "object",
+      "required": [
+        "page",
+        "pageSize"
+      ],
+      "properties": {
+        "address": {
+          "description": "Student's home address | 学生家庭住址",
+          "type": "string",
+          "x-go-name": "Address"
+        },
+        "name": {
+          "description": "Student name | 学生姓名",
+          "type": "string",
+          "x-go-name": "Name"
+        },
+        "page": {
+          "description": "Page number | 第几页",
+          "type": "integer",
+          "format": "uint64",
+          "minimum": 0,
+          "x-go-name": "Page"
+        },
+        "pageSize": {
+          "description": "Page size | 单页数据行数",
+          "type": "integer",
+          "format": "uint64",
+          "maximum": 100000,
+          "x-go-name": "PageSize"
+        }
+      },
+      "x-go-package": "github.com/suyuan32/simple-admin-school/internal/types"
+    },
+    "StudentListResp": {
+      "description": "The response data of student list | Student列表数据",
+      "type": "object",
+      "properties": {
+        "code": {
+          "description": "Error code | 错误代码",
+          "type": "integer",
+          "format": "int64",
+          "x-go-name": "Code"
+        },
+        "data": {
+          "description": "Data | 数据",
+          "type": "string",
+          "x-go-name": "Data",
+          "$ref": "#/definitions/StudentListInfo"
+        },
+        "msg": {
+          "description": "Message | 提示信息",
+          "type": "string",
+          "x-go-name": "Msg"
+        }
+      },
+      "x-go-package": "github.com/suyuan32/simple-admin-school/internal/types"
+    },
+    "TeacherInfo": {
+      "description": "The response data of teacher information | Teacher信息",
+      "type": "object",
+      "properties": {
+        "age": {
+          "description": "Teacher's age | 教师年龄",
+          "type": "integer",
+          "format": "int16",
+          "x-go-name": "Age"
+        },
+        "createdAt": {
+          "description": "Create date | 创建日期",
+          "type": "integer",
+          "format": "int64",
+          "x-go-name": "CreatedAt"
+        },
+        "id": {
+          "description": "ID",
+          "type": "integer",
+          "format": "uint64",
+          "x-go-name": "Id"
+        },
+        "name": {
+          "description": "Teacher's name | 教师姓名",
+          "type": "string",
+          "x-go-name": "Name"
+        },
+        "updatedAt": {
+          "description": "Update date | 更新日期",
+          "type": "integer",
+          "format": "int64",
+          "x-go-name": "UpdatedAt"
+        }
+      },
+      "x-go-package": "github.com/suyuan32/simple-admin-school/internal/types"
+    },
+    "TeacherInfoResp": {
+      "description": "Teacher information response | Teacher信息返回体",
+      "type": "object",
+      "properties": {
+        "code": {
+          "description": "Error code | 错误代码",
+          "type": "integer",
+          "format": "int64",
+          "x-go-name": "Code"
+        },
+        "data": {
+          "description": "Data | 数据",
+          "type": "string",
+          "x-go-name": "Data",
+          "$ref": "#/definitions/TeacherInfo"
+        },
+        "msg": {
+          "description": "Message | 提示信息",
+          "type": "string",
+          "x-go-name": "Msg"
+        }
+      },
+      "x-go-package": "github.com/suyuan32/simple-admin-school/internal/types"
+    },
+    "TeacherListInfo": {
+      "description": "Teacher list data | Teacher列表数据",
+      "type": "object",
+      "properties": {
+        "data": {
+          "description": "The API list data | Teacher列表数据",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/TeacherInfo"
+          },
+          "x-go-name": "Data"
+        },
+        "total": {
+          "description": "The total number of data | 数据总数",
+          "type": "integer",
+          "format": "uint64",
+          "x-go-name": "Total"
+        }
+      },
+      "x-go-package": "github.com/suyuan32/simple-admin-school/internal/types"
+    },
+    "TeacherListReq": {
+      "description": "Get teacher list request params | Teacher列表请求参数",
+      "type": "object",
+      "required": [
+        "page",
+        "pageSize"
+      ],
+      "properties": {
+        "name": {
+          "description": "Teacher's name | 教师姓名",
+          "type": "string",
+          "x-go-name": "Name"
+        },
+        "page": {
+          "description": "Page number | 第几页",
+          "type": "integer",
+          "format": "uint64",
+          "minimum": 0,
+          "x-go-name": "Page"
+        },
+        "pageSize": {
+          "description": "Page size | 单页数据行数",
+          "type": "integer",
+          "format": "uint64",
+          "maximum": 100000,
+          "x-go-name": "PageSize"
+        }
+      },
+      "x-go-package": "github.com/suyuan32/simple-admin-school/internal/types"
+    },
+    "TeacherListResp": {
+      "description": "The response data of teacher list | Teacher列表数据",
+      "type": "object",
+      "properties": {
+        "code": {
+          "description": "Error code | 错误代码",
+          "type": "integer",
+          "format": "int64",
+          "x-go-name": "Code"
+        },
+        "data": {
+          "description": "Data | 数据",
+          "type": "string",
+          "x-go-name": "Data",
+          "$ref": "#/definitions/TeacherListInfo"
+        },
+        "msg": {
+          "description": "Message | 提示信息",
+          "type": "string",
+          "x-go-name": "Msg"
+        }
+      },
+      "x-go-package": "github.com/suyuan32/simple-admin-school/internal/types"
+    },
+    "TestReq": {
+      "description": "Test request | 测试请求",
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "maxLength": 5,
+          "x-go-name": "Name"
+        }
+      },
+      "x-go-package": "github.com/suyuan32/simple-admin-school/internal/types"
+    },
+    "TestResp": {
+      "description": "Test response | 测试返回",
+      "type": "object",
+      "properties": {
+        "code": {
+          "description": "Error code | 错误代码",
+          "type": "integer",
+          "format": "int64",
+          "x-go-name": "Code"
+        },
+        "data": {
+          "description": "Data | 数据",
+          "type": "string",
+          "x-go-name": "Data",
+          "$ref": "#/definitions/StudentInfo"
+        },
+        "msg": {
+          "description": "Message | 提示信息",
+          "type": "string",
+          "x-go-name": "Msg"
+        }
+      },
+      "x-go-package": "github.com/suyuan32/simple-admin-school/internal/types"
+    },
+    "UUIDPathReq": {
+      "description": "Basic UUID request in path | 基础UUID地址参数请求",
+      "type": "object",
+      "required": [
+        "Id"
+      ],
+      "properties": {
+        "Id": {
+          "description": "ID",
+          "type": "string"
+        }
+      },
+      "x-go-package": "github.com/suyuan32/simple-admin-school/internal/types"
+    },
+    "UUIDReq": {
+      "description": "Basic UUID request | 基础UUID参数请求",
+      "type": "object",
+      "required": [
+        "id"
+      ],
+      "properties": {
+        "id": {
+          "description": "ID",
+          "type": "string",
+          "maxLength": 36,
+          "minLength": 36,
+          "x-go-name": "Id"
+        }
+      },
+      "x-go-package": "github.com/suyuan32/simple-admin-school/internal/types"
+    },
+    "UUIDsReq": {
+      "description": "Basic UUID array request | 基础UUID数组参数请求",
+      "type": "object",
+      "required": [
+        "ids"
+      ],
+      "properties": {
+        "ids": {
+          "description": "Ids",
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "x-go-name": "Ids"
+        }
+      },
+      "x-go-package": "github.com/suyuan32/simple-admin-school/internal/types"
+    }
+  },
+  "securityDefinitions": {
+    "Token": {
+      "type": "apiKey",
+      "name": "Authorization",
+      "in": "header"
+    }
+  },
+  "security": [
+    {
+      "Token": [
+        "[]"
+      ]
+    }
+  ]
+}
